@@ -1,14 +1,18 @@
+// IMPORTS
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 fun main() {
+    // DATE FORMATTER
     val format = DateTimeFormatter.ofPattern("MM/dd/yyyy")
     val today = LocalDate.now()
     val todayFormat = today.format(format)
+    // LAST FULL MOON DATE
     val recentFullMoon = LocalDate.parse("2022-09-10")
     val formatRecentFullMoon = recentFullMoon.format(format)
 
     val daysUntilNextFullMoon = 29
+    // FINDS HOW MANY DAYS IT HAS BEEN SINCE LAST FULL MOON
     val daysSinceLastFullMoon = today.minusDays(recentFullMoon.dayOfMonth.toLong())
     val days = daysSinceLastFullMoon.dayOfMonth
     val daysUntilFullMoonFromNow = daysUntilNextFullMoon - days
